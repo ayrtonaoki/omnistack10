@@ -33,5 +33,13 @@ module.exports = {
     }
 
     return response.json(dev);
+  },
+
+  async update(request, response) {
+    const _id = request.params.id;
+    const { name } = request.body;
+    let dev = await Dev.findOneAndUpdate({ _id }, { name: name });
+
+    return response.json(dev);
   }
 };
