@@ -3,7 +3,7 @@ const Dev = require("../models/Dev");
 const StringHelper = require("../helpers/StringHelper");
 
 module.exports = {
-  async index(request, response ) {
+  async index(request, response) {
     const devs = await Dev.find();
     return response.json(devs);
   },
