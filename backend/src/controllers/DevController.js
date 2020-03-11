@@ -37,8 +37,12 @@ module.exports = {
 
   async update(request, response) {
     const _id = request.params.id;
-    const { name } = request.body;
-    let dev = await Dev.findOneAndUpdate({ _id }, { name: name });
+    const { name, techs, bio, location } = request.body;
+
+    const dev = await Dev.findOneAndUpdate(
+      { _id },
+      { name: name, techs: techs, bio: bio, location: location }
+    );
 
     return response.json(dev);
   }
